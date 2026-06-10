@@ -16,5 +16,5 @@ COPY backend/ /app/
 # Expose the port the app runs on
 EXPOSE 8001
 
-# Command to run the application
-CMD ["python", "server.py"]
+# Command to run the application with uvicorn for production
+CMD ["python", "-m", "uvicorn", "server:app", "--host", "0.0.0.0", "--port", "8001", "--workers", "1"]
